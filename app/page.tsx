@@ -9,6 +9,7 @@ import Tracks from '@/components/selfcomponents/Tracks/Tracks';
 import Judges from '@/components/selfcomponents/Judges/Judges';
 import FAQ from '@/components/selfcomponents/FAQ/FAQ';
 import Footer from '@/components/selfcomponents/Footer';
+import { PastEvents } from '@/components/selfcomponents/pastevents/pastevent';
 
 
 
@@ -19,10 +20,11 @@ export default function Home() {
     <main>
       <Hero />
       <About />
+      <PastEvents/>
+      <Speakers />
       <Tracks />
       <Schedule />
       <Prizes />
-      <Speakers />
       <Judges />
       <Sponsors />
       <FAQ />

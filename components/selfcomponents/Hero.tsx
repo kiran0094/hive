@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
+import { TextAnimate } from "@/components/ui/text-animate";
 
 const Hero = () => {
   const starsRef = useRef<HTMLDivElement>(null);
@@ -24,15 +25,17 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
+    <div className="relative min-h-screen bg-[url('/hero2.jpg')] bg-cover bg-right
+ overflow-hidden">
       <div ref={starsRef} className="absolute inset-0 z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[5%]">
         <div className="max-w-3xl">
-          <h1 className="font-mono text-[130px] leading-none font-black text-white tracking-tighter animate-title">
-            HACK<br />
-            TO THE<br />
-            HIVE
+        
+          <h1 className="font-mono text-[9rem] leading-none text-white tracking-tighter animate-title">
+          <TextAnimate animation="fadeIn" by="line" as="div">
+      {`HACK TO\n\nTHE HIVE`}
+           </TextAnimate>
           </h1>
 
           <div className="mt-12 flex flex-wrap gap-4">
@@ -47,15 +50,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute top-0 right-0 w-1/2 h-screen">
-        <img
-          src="/planet.png"
-          alt="Colorful Planet"
-          className="object-contain object-right w-full h-full"
-          style={{ transform: 'translateX(50%)' }}
-        />
       </div>
-    </div>
   );
 };
 

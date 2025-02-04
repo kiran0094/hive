@@ -1,34 +1,54 @@
 "use client"
-import React from 'react';
-import { Home, Info, Users, Award, Building2, Calendar } from 'lucide-react';
+import { useState }from 'react';
+// import { Home, Info, Users, Award, Building2, Calendar } from 'lucide-react';
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = React.useState('home');
+  // const [activeItem, setActiveItem] = React.useState('home');
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
-  const menuItems = [
-    { id: 'home', icon: Home, label: 'Home' },
-    { id: 'about', icon: Info, label: 'About' },
-    { id: 'tracks', icon: Award, label: 'Tracks' },
-    { id: 'schedule', icon: Calendar, label: 'Schedule' },
-    { id: 'speakers', icon: Users, label: 'Speakers' },
-    { id: 'sponsors', icon: Building2, label: 'Sponsors' },
-  ];
 
   return (
-    <nav className="dock-menu">
-      {menuItems.map(({ id, icon: Icon, label }) => (
-        <a
-          key={id}
-          href={`#${id}`}
-          className={`dock-item group ${activeItem === id ? 'active' : ''}`}
-          onClick={() => setActiveItem(id)}
-        >
-          <Icon className="w-4 h-4 group-hover:w-6 group-hover:h-6 text-white/80 group-hover:text-white transition-all duration-300" />
-          <span className="absolute right-full mr-2 px-2 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            {label}
-          </span>
-        </a>
-      ))}
+    <nav className='flex min-w-screen py-4 px-6 justify-between bg-transparent sticky top-0 z-50'>
+      
+      <div>
+        <h2 className='text-2xl font-bold text-white'>HIVE</h2>    
+
+      </div>
+{/* desktop */}
+      <div className='sm:flex hidden space-x-6'>
+         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Home</button>
+         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>About</button>
+         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Tracks</button>
+         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Schedule</button>
+         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Speakers</button>
+         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Sponsors</button>       
+    </div>
+      {/* mobile */}
+      <div className='sm:hidden flex relative'>
+
+      <div className='flex flex-col'>
+        <div className='flex justify-center'>
+        <button onClick={() => setToggleDropdown(!toggleDropdown)}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+          </svg>
+        </button>
+        </div>
+
+      {toggleDropdown && (
+              <div className='dropdown font-bold'>
+         <button className='text-white'>Home</button>
+         <button className='text-white'>About</button>
+         <button className='text-white'>Tracks</button>
+         <button className='text-white'>Schedule</button>
+         <button className='text-white'>Speakers</button>
+         <button className='text-white'>Sponsors</button>
+
+                </div>
+              )}
+      </div>
+      </div>
+
     </nav>
   );
 };

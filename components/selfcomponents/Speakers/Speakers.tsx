@@ -1,40 +1,102 @@
-import React from 'react';
-import SpeakerCard from './SpeakerCard';
+"use client";
 
-const Speakers = () => {
-  const speakers = [
-    {
-      name: 'Dr. Sarah Chen',
-      role: 'Blockchain Researcher',
-      company: 'Web3 Institute',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-    },
-    {
-      name: 'Michael Rodriguez',
-      role: 'Chief Innovation Officer',
-      company: 'DeFi Solutions',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
-      linkedin: 'https://linkedin.com',
-    },
-  ];
+import Image from "next/image";
+import React from "react";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import Link from "next/link";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { HyperText } from "@/components/ui/hyper-text";
 
+const cardData = [
+  {
+    name: "Dr. Sarah Chen",
+    role: "Blockchain Researcher",
+    company: "Web3 Institute",
+    image:
+      "/hero.jpg",
+    linkedin: "https://linkedin.com",
+    twitter: "https://twitter.com",
+  },
+  {
+    name: "Michael Rodriguez",
+    role: "Chief Innovation Officer",
+    company: "DeFi Solutions",
+    image: "/hero.jpg",
+    linkedin: "https://linkedin.com",
+  },
+];
+
+export default function  speakers() {
   return (
-    <section id="speakers" className="py-24 bg-black">
+  <>
+   <div id="about" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">Featured Speakers</h2>
-          <p className="mt-4 text-xl text-violet-200">Learn from industry experts</p>
+        <div className="text-center">
+          <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl">
+           <HyperText >speakers </HyperText>
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-white/80 font-sans">
+            Join us in pushing the boundaries of blockchain technology and Web3 innovation
+          </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {speakers.map((speaker) => (
-            <SpeakerCard key={speaker.name} {...speaker} />
-          ))}
         </div>
-      </div>
-    </section>
-  );
-};
+        </div>
 
-export default Speakers;
+
+
+  {/* cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+      {cardData.map((person, index) => (
+          <CardContainer key={index} className="inter-var">
+          <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] bg-black border-white/[0.2] w-auto sm:w-[25rem] h-auto rounded-xl p-6 border transition-all duration-300">
+            <CardItem translateZ="50" className="w-full flex justify-center">
+              <Image
+                src={person.image}
+                height={500}
+                width={400}
+                className="object-cover border border-gray-300 rounded-xl"
+                alt={person.name}
+                />
+            </CardItem>
+            <CardItem
+              translateZ="50"
+              className="text-xl font-semibold:text-white text-center mt-4"
+              >
+              {person.name}
+            </CardItem>
+            <CardItem
+              as="p"
+              translateZ="60"
+              className="text-sm text-center text-neutral-300"
+              >
+              {person.role} at {person.company}
+            </CardItem>
+            <div className="flex justify-center gap-4 mt-6">
+              <CardItem
+                translateZ={20}
+                as={Link}
+                href={person.linkedin}
+                target="__blank"
+                className="px-4 py-2 rounded-xl text-xs font-norma text-white "
+                >
+            <FaLinkedinIn className="h-5 w-5" />
+              </CardItem>
+              {person.twitter && (
+                  <CardItem
+                  translateZ={20}
+                  as={Link}
+                  href={person.twitter}
+                  target="__blank"
+                  className="px-4 py-2 rounded-xl text-xs font-normal text-white"
+                  >
+                <FaXTwitter className="h-5 w-5" />
+                </CardItem>
+              )}
+            </div>
+          </CardBody>
+        </CardContainer>
+      ))}
+    </div>
+</>
+    )}
