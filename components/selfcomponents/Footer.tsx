@@ -1,5 +1,7 @@
 import React from 'react';
 import { Github, Twitter, Linkedin } from 'lucide-react';
+import { PinContainer } from "@/components/ui/3d-pin";
+
 
 const Footer = () => {
   return (
@@ -8,21 +10,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <h3 className="font-mono text-2xl font-bold text-white mb-4">HACK TO THE HIVE</h3>
-            <p className="text-white/60 font-sans">
+            <p className="text-white/60 font-sans pb-4">
               Join us in building the future of Web3 technology and decentralized innovation.
             </p>
-          </div>
-          <div>
-            <h4 className="font-mono text-lg font-bold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2 font-sans">
-              <li><a href="#about" className="text-white/60 hover:text-white">About</a></li>
-              <li><a href="#tracks" className="text-white/60 hover:text-white">Tracks</a></li>
-              <li><a href="#schedule" className="text-white/60 hover:text-white">Schedule</a></li>
-              <li><a href="#sponsors" className="text-white/60 hover:text-white">Sponsors</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-mono text-lg font-bold text-white mb-4">Connect With Us</h4>
             <div className="flex space-x-4">
               <a href="#" className="text-white/60 hover:text-white">
                 <Github className="w-6 h-6" />
@@ -34,6 +24,31 @@ const Footer = () => {
                 <Linkedin className="w-6 h-6" />
               </a>
             </div>
+          </div>
+
+          {/* location */}
+          <div className="flex items-center justify-center ">
+      <PinContainer
+        title="/ui.aceternity.com"
+        href="https://twitter.com/mannupaaji"
+      >
+        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+          <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+            Aceternity UI
+          </h3>
+          <div className="text-base !m-0 !p-0 font-normal">
+            <span className="text-slate-500 ">
+              Customizable Tailwind CSS and Framer Motion Components.
+            </span>
+          </div>
+          <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+        </div>
+      </PinContainer>
+    </div>
+          
+          <div>
+            <h4 className="font-mono text-lg font-bold text-white mb-4">Connect With Us</h4>
+            <h5>test@gmail.com</h5>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-white/10 text-center">

@@ -1,28 +1,43 @@
 "use client"
-import { useState }from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 // import { Home, Info, Users, Award, Building2, Calendar } from 'lucide-react';
 
 const Navbar = () => {
   // const [activeItem, setActiveItem] = React.useState('home');
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className='flex min-w-screen py-4 px-6 justify-between bg-transparent sticky top-0 z-50'>
+    <nav className={`flex min-w-screen py-4 px-6 justify-between fixed w-full top-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-black/70 backdrop-blur-sm' : 'bg-transparent'
+    }`}>
       
       <div>
-        <h2 className='text-2xl font-bold text-white'>HIVE</h2>    
-
+      <Link href="/" className='text-2xl font-bold text-white'>HIVE</Link>
       </div>
 {/* desktop */}
       <div className='sm:flex hidden space-x-6'>
-         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Home</button>
-         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>About</button>
-         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Tracks</button>
-         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Schedule</button>
-         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Speakers</button>
-         <button className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Sponsors</button>       
-    </div>
+        <Link href="/" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Home</Link>
+         <Link href="/#about" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>About</Link>
+         <Link href="/#speakers" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Speakers</Link>
+         <Link href="/organisors" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>organisors</Link>
+         <Link href="/timeline" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Schedule</Link>
+         <Link href="/sponsors" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Sponsors</Link>       
+
+        </div>
       {/* mobile */}
       <div className='sm:hidden flex relative'>
 
@@ -37,13 +52,14 @@ const Navbar = () => {
 
       {toggleDropdown && (
               <div className='dropdown font-bold'>
-         <button className='text-white'>Home</button>
-         <button className='text-white'>About</button>
-         <button className='text-white'>Tracks</button>
-         <button className='text-white'>Schedule</button>
-         <button className='text-white'>Speakers</button>
-         <button className='text-white'>Sponsors</button>
+         <Link href="/" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Home</Link>
+         <Link href="/#about" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>About</Link>
+         <Link href="/#tracks" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Tracks</Link>
+         <Link href="/timeline" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Schedule</Link>
+         <Link href="/#speakers" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Speakers</Link>
+         <Link href="/sponsors" className='text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'>Sponsors</Link>       
 
+        
                 </div>
               )}
       </div>

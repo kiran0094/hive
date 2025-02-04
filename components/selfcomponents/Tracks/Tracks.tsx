@@ -34,7 +34,7 @@ const cardData = [
 export default function Tracks() {
   return (
     <>
-    <div id="about" className="py-24 bg-black">
+    <div id="tracks" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl">
