@@ -25,7 +25,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[url('/hero2.jpg')] bg-cover bg-right
+    <div className="relative min-h-screen bg-[url('/hero.jpg')] bg-cover bg-right
  overflow-hidden">
       <div ref={starsRef} className="absolute inset-0 z-0" />
 

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { HyperText } from "@/components/ui/hyper-text";
-import { PulsatingButton } from "@/components/ui/pulsating-button"
+import { ShinyButton } from "@/components/ui/shiny-button"
 
 const cardData = [
   {
@@ -30,17 +30,12 @@ const cardData = [
 
 export default function  speakers() {
   return (
-  <>
-   <div id="speakers" className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
+  <section className="bg-[url('/hero2.jpg')] bg-contain overflow-hidden">
+   <div  className="py-24 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">        
           <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl">
            <HyperText >speakers </HyperText>
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-white/80 font-sans">
-            Join us in pushing the boundaries of blockchain technology and Web3 innovation
-          </p>
-        </div>
+           </h2>       
         </div>
         </div>
 
@@ -102,8 +97,7 @@ export default function  speakers() {
 
       {/* join us button */}
       <div className="flex justify-center">
-
-      <PulsatingButton>Join Us</PulsatingButton>
+      <ShinyButton>Join us</ShinyButton>      
       </div>
-</>
+</section>
     )}

@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { HyperText } from '@/components/ui/hyper-text';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
@@ -29,12 +30,14 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="relative py-24 bg-black overflow-hidden">
+    <section id="faq" className="relative py-24 bg-[url('/hero2.jpg')] bg-contain overflow-hidden">
       <div className="stars-1"></div>
       <div className="stars-2"></div>
       <div className="stars-3"></div>
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-heading text-center mb-16">FAQ</h2>
+      <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl text-center pb-4">
+           <HyperText >FAQ </HyperText>
+          </h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div key={index} className="bg-indigo-900/30 rounded-lg backdrop-blur-sm">

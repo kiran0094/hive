@@ -2,8 +2,16 @@ import React from 'react';
 import { Github, Twitter, Linkedin } from 'lucide-react';
 import { PinContainer } from "@/components/ui/3d-pin";
 
+const cardData = [
+  {
+    name: "MLRITM Venue",
+    image: "/clg.png",
+    location: "Marri Laxman Reddy Institute of Technology and Management",
+    mapsLink: "https://www.google.com/maps/search/mlritm/",
+  },
+];
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="bg-black py-16 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,25 +34,22 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* location */}
-          <div className="flex items-center justify-center ">
-      <PinContainer
-        title="/ui.aceternity.com"
-        href="https://twitter.com/mannupaaji"
-      >
-        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-          <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
-            Aceternity UI
-          </h3>
-          <div className="text-base !m-0 !p-0 font-normal">
-            <span className="text-slate-500 ">
-              Customizable Tailwind CSS and Framer Motion Components.
-            </span>
+          {/* Venue Location */}
+          <div className="flex items-center justify-center">
+            {cardData.map((place, index) => (
+              <PinContainer key={index} title="GMaps to MLRITM" href={place.mapsLink}>
+                <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem]">
+                  <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100">📍 Venue Location</h3>
+                  <div className="text-base !m-0 !p-0 font-normal">
+                    <span className="text-slate-500">{place.location}</span>
+                  </div>
+                  <div className="flex flex-1 w-full rounded-lg mt-4">
+                    <img src={place.image} alt="MLRITM Venue" className="w-full h-full object-cover rounded-lg" />
+                  </div>
+                </div>
+              </PinContainer>
+            ))}
           </div>
-          <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
-        </div>
-      </PinContainer>
-    </div>
           
           <div>
             <h4 className="font-mono text-lg font-bold text-white mb-4">Connect With Us</h4>
@@ -56,7 +61,5 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
+  );
 }
-
-export default Footer;

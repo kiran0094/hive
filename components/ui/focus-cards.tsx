@@ -3,6 +3,12 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 
+type CardProps = {
+  title: string;
+  image: string;
+  description: string;
+};
+
 export const Card = React.memo(
   ({
     card,
@@ -11,7 +17,7 @@ export const Card = React.memo(
     setHovered,
     className
   }: {
-    card: any;
+    card: CardProps;
     index: number;
     hovered: number | null;
     setHovered: React.Dispatch<React.SetStateAction<number | null>>;
@@ -26,24 +32,25 @@ export const Card = React.memo(
       )}
     >
       <Image
-        src={card.src}
+        src={card.image}
         alt={card.title}
         fill
         className="object-cover absolute inset-0"
       />
+      <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold"> {/* Hero text overlay */}
+        {card.title} {/* Displaying the title as hero text */}
+      </div>
       <div
         className={cn(
           "absolute inset-0 bg-black/50 flex items-end py-8 px-4 transition-opacity duration-300",
           hovered === index ? "opacity-100" : "opacity-0"
         )}
       >
-        <div className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
-          {card.title}
-        </div>
+        <div className="text-sm text-white">{card.description}</div> {/* Added description */}
+      </div>       
       </div>
-    </div>
-  )
-);
+  
+  ));
 
 Card.displayName = "Card";
 
@@ -52,7 +59,7 @@ type Card = {
   src: string;
 };
 
-export function FocusCards({ cards }: { cards: Card[] }) {
+export function FocusCards({ cards }: { cards: CardProps[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
