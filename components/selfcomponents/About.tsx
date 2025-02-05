@@ -71,12 +71,12 @@ const About = () => {
            <HyperText >why hack to the hive
            </HyperText>
           </h2>
-          <p className="mt-4 max-w-4xl mx-auto text-xl text-white/80 font-sans text-justify " ref={descriptionRef}>
+          <p className="mt-4 max-w-4xl mx-auto text-xl text-white/80 font-poppins text-justify " ref={descriptionRef}>
           This event offers a unique platform to collaborate, innovate, and solve real-world challenges in Gen AI, Web 2, Web 3, and open-source technologies. With 30 hours of coding, expert mentorship, and networking, participants gain hands-on experience, sharpen their skills, and create impactful solutions. It’s the perfect opportunity to push boundaries, learn from industry leaders, and make a meaningful impact in the tech community.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto px-8"ref={projectsRef}>
+        <div className="max-w-5xl mx-auto px-8 font-poppins"ref={projectsRef}>
       <HoverEffect items={projects} />
     </div>
 

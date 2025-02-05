@@ -21,7 +21,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`flex min-w-screen py-4 px-6 justify-between fixed w-full top-0 z-50 transition-all duration-300 ${
+    <nav className={`flex min-w-screen font-poppins py-4 px-6 justify-between fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-black/70 backdrop-blur-sm' : 'bg-transparent'
     }`}>
       

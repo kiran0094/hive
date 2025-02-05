@@ -1,6 +1,7 @@
 import React from 'react';
 import { Github, Twitter, Linkedin } from 'lucide-react';
 import { PinContainer } from "@/components/ui/3d-pin";
+import Image from 'next/image';
 
 const cardData = [
   {
@@ -35,7 +36,7 @@ export default function Footer() {
           </div>
 
           {/* Venue Location */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center font-poppins">
             {cardData.map((place, index) => (
               <PinContainer key={index} title="GMaps to MLRITM" href={place.mapsLink}>
                 <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem]">
@@ -44,7 +45,12 @@ export default function Footer() {
                     <span className="text-slate-500">{place.location}</span>
                   </div>
                   <div className="flex flex-1 w-full rounded-lg mt-4">
-                    <img src={place.image} alt="MLRITM Venue" className="w-full h-full object-cover rounded-lg" />
+                    <Image
+                     src={place.image}
+                     alt="MLRITM Venue"
+                     height={400}
+                     width={400}
+                     className="w-full h-full object-cover rounded-lg" />
                   </div>
                 </div>
               </PinContainer>

@@ -41,7 +41,7 @@ export default function FocusCardsDemo() {
     <section className="bg-[url('/hero2.jpg')] bg-contain overflow-hidden">
      <div id="about" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl">
+          <h2 className="font-poppins text-4xl font-extrabold text-white sm:text-5xl">
            <HyperText > prize </HyperText>
           </h2>       
           </div>

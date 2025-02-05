@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
+import { HyperText } from "@/components/ui/hyper-text";
 import { Plus, Minus } from 'lucide-react';
-import { HyperText } from '@/components/ui/hyper-text';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
@@ -30,22 +30,27 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="relative py-24 bg-[url('/hero2.jpg')] bg-contain overflow-hidden">
+    <section id="faq" className="relative py-24 bg-black overflow-hidden">
       <div className="stars-1"></div>
       <div className="stars-2"></div>
       <div className="stars-3"></div>
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl text-center pb-4">
-           <HyperText >FAQ </HyperText>
+        <div className="text-center">
+          <h2 className="font-poppins text-4xl font-extrabold text-white sm:text-5xl">
+            <HyperText>FAQ's</HyperText>
           </h2>
-        <div className="space-y-4">
+        </div>
+        <div className="space-y-4 mt-6">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-indigo-900/30 rounded-lg backdrop-blur-sm">
+            <div
+              key={index}
+              className="bg-white/10 border border-white/20 backdrop-blur-lg shadow-lg rounded-2xl overflow-hidden"
+            >
               <button
                 className="w-full px-6 py-4 flex items-center justify-between text-left"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="text-lg font-mono text-white">{faq.question}</span>
+                <span className="text-lg font-poppins text-white">{faq.question}</span>
                 {openIndex === index ? (
                   <Minus className="w-5 h-5 text-white/80" />
                 ) : (
@@ -65,4 +70,4 @@ const FAQ = () => {
   );
 }
 
-export default FAQ;
+export default FAQ;

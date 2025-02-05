@@ -1,91 +1,160 @@
 "use client";
+import { HyperText } from "@/components/ui/hyper-text";
 import Image from "next/image";
 import React from "react";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
-export default function AppleCardsCarouselDemo() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
-
-  return (
-    <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-        Get to know your iSad.
-      </h2>
-      <Carousel items={cards} />
-    </div>
-  );
-}
-
-const DummyContent = () => {
-  return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                The first rule of Apple club is that you boast about Apple club.
-              </span>{" "}
-              Keep a journal, quickly jot down a grocery list, and take amazing
-              class notes. Want to convert those notes to text? No problem.
-              Langotiya jeetu ka mara hua yaar is ready to capture every
-              thought.
-            </p>
-            <Image
-              src="https://assets.aceternity.com/macbook.png"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-            />
-          </div>
-        );
-      })}
-    </>
-  );
+// Sample partner data for each tier. Replace the dummy data with your actual partners.
+const partnersData = {
+  title: [
+    {
+      name: "Title Partner 1",
+      logo: "/images/title-partner1.png",
+      link: "https://example.com",
+      description:
+        "We are looking for partner. Join us now ",
+    },
+    // Add more title partners as needed
+  ],
+  venue: [
+    {
+      name: "Marri Laxman Reddy Institute of Technology and Management",
+      logo: "/mlritmsp.jpeg",
+      link: "https://www.mlritm.ac.in/",
+    },
+    // Add more venue partners as needed
+  ],
+  platinum: [
+    {
+      name: "Platinum Partner 1",
+      logo: "/xyz.png",
+      link: "https://example.com",
+    },
+    {
+      name: "Platinum Partner 2",
+      logo: "/xyz.png",
+      link: "https://example.com",
+    },
+    // Add more platinum partners as needed
+  ],
+  gold: [
+    {
+      name: "Gold Partner 1",
+      logo: "/xyz.png",
+      link: "https://example.com",
+    },
+    // Add more gold partners as needed
+  ],
+  Platform: [
+    {
+      name: "Gold Partner 1",
+      logo: "/H2S.png",
+      link: "https://hack2skill.com/",
+    },
+    // Add more gold partners as needed
+  ],
+  
+  inkind: [
+    {
+      name: "In-Kind Partner 1",
+      logo: "/xyz.png",
+      link: "https://gen.xyz/",
+    },
+    // Add more inkind partners as needed
+  ],
+  community: [
+    {
+      name: "NEXUS Swarm",
+      logo: "/nexus.jpeg",
+      link: "https://linktr.ee/nexus_swarm",
+    },
+    // Add more inkind partners as needed
+  ],
 };
 
-const data = [
-  {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
+export default function PartnersPage() {
+  return (
+    <div className="w-full py-20 bg-white dark:bg-neutral-900">
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl md:text-5xl font-anton font-bold text-center text-neutral-800 dark:text-neutral-200 mb-12">
+        <HyperText >PARTNERS </HyperText>
+        </h1>
+        {Object.entries(partnersData).map(([tier, partners]) => (
+          <section key={tier} className="mb-16">
+            <h2 className="text-2xl md:text-4xl  font-anton text-center text-neutral-700 dark:text-neutral-300 mb-6 uppercase">
+              {tier} Partners
+            </h2>
+            <div className="flex flex-wrap justify-center gap-8">
+              {partners.map((partner, index) => {
+                // Conditional sizing for each tier
+                const containerClasses =
+                  tier === "title"
+                    ? "w-[40rem] h-[20rem]" // Title partner box size
+                    : tier === "venue"
+                    ? "w-[30rem] h-[20rem]" // Venue partner box size
+                    : "w-40 h-40"; // Default size for other tiers
 
-  {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-];
+                return (
+                  <a
+                    key={index}
+                    href={partner.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col items-center justify-center p-4 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:shadow-lg transition duration-300 ${containerClasses}`}
+                  >
+                    {tier === "title" ? (
+                      // Title partner box with powered by, partner name, and description
+                      <div className="flex w-full h-full">
+                        <div className="flex flex-col justify-center w-1/2 p-4">
+                          <span className="text-sm text-neutral-600 dark:text-neutral-400">Powered by</span>
+                          <h3 className="text-xl md:text-3xl font-bold font-poppins text-neutral-800 dark:text-neutral-200 mt-2">
+                            {partner.name}
+                          </h3>
+                          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-4">
+                            {partner.description}
+                          </p>
+                        </div>
+                        <div className="w-1/2 p-4 flex items-center justify-center">
+                          <Image
+                            src={partner.logo}
+                            alt={partner.name}
+                            width={200}
+                            height={150}
+                            className="object-contain"
+                          />
+                        </div>
+                      </div>
+                    ) : tier === "venue" ? (
+                      // Venue partner box with full image filling the box
+                      <div className="w-full h-full relative">
+                        <Image
+                          src={partner.logo}
+                          alt={partner.name}
+                          layout="fill" // Ensures the image fills the container
+                          className="object-cover rounded-lg"
+                        />
+                      </div>
+                    ) : (
+                      // For other tiers, just display logo with name
+                      <div className="flex flex-col items-center justify-center">
+                        <Image
+                          src={partner.logo}
+                          alt={partner.name}
+                          width={150}
+                          height={100}
+                          className="object-contain"
+                        />
+                        <span className="mt-2 text-center text-sm text-neutral-700 dark:text-neutral-300">
+                          {partner.name}
+                        </span>
+                      </div>
+                    )}
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}

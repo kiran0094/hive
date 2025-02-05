@@ -72,7 +72,7 @@ export function FocusCards({ cards }: { cards: CardProps[] }) {
           hovered={hovered}
           setHovered={setHovered}
           className={cn(
-            index === 0 && "md:col-span-4"
+            index === 0 && "md:col-span-4 font-poppins"
           )}
         />
       ))}

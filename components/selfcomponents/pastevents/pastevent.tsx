@@ -14,9 +14,7 @@ export function PastEvents() {
             <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl">
               <HyperText>PAST EVENTS</HyperText>
             </h2>
-            <p className="mt-4 text-xl text-white/80 font-sans">
-              Join us in pushing the boundaries of blockchain technology and Web3 innovation
-            </p>
+            
           </div>
         </div>
       </div>

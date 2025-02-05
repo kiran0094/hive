@@ -7,22 +7,22 @@ import { HyperText } from "@/components/ui/hyper-text";
 const cardData = [
   {
     title: "Generative-AI",
-    description: "Leverage AI to create dynamic content and personalized experiences across various platforms.",
+    description: "Leverage AI to create dynamic content and personalized experiences across various digital platforms.                  ",
     image: "/hero.jpg",
   },
   {
-    title: "Web3 Techonology",
+    title: "Web3 ",
     description: "Develop decentralized applications that empower users with control and transparency in decentralized internet",
     image: "/hero.jpg",
   },
   {
-    title: "Web2 Techonology",
-    description: "Enhance user experiences by integrating advanced AI capabilities into traditional web platforms",
+    title: "Web2 ",
+    description: "Enhance user experiences by integrating advanced AI capabilities into traditional web platforms with latest technical expertise.       ",
     image: "/hero.jpg",
   },
   {
     title: "Open Source",
-    description: "Contribute to and benefit from community-driven projects that accelerate technological advancement.",
+    description: "Contribute to and benefit from community-driven projects that accelerate technological advancement.          ",
     image: "/hero.jpg",
   },
 ];
@@ -54,15 +54,13 @@ export default function Tracks() {
               width="400"
               className="object-cover rounded-lg"
             />
-            <p className="text-base sm:text-xl mt-4 mb-2 text-neutral-200">
+            <p className="text-base sm:text-xl mt-4 mb-2 text-neutral-200 font-poppins">
               {card.title}
             </p>
-            <p className="text-sm text-neutral-400">
+            <p className="text-sm text-neutral-400 font-poppins">
               {card.description}
             </p>
-            <button className="rounded-full px-4 py-2 text-white mt-4 text-xs font-bold bg-zinc-800">
-              Learn More
-            </button>
+            
           </BackgroundGradient>
         ))}
       </div>

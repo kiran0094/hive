@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
 import { TextAnimate } from "@/components/ui/text-animate";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";  
 
 const Hero = () => {
   const starsRef = useRef<HTMLDivElement>(null);
@@ -33,19 +34,13 @@ const Hero = () => {
         <div className="max-w-3xl">
         
           <h1 className="font-mono text-[9rem] leading-none text-white tracking-tighter animate-title">
-          <TextAnimate animation="fadeIn" by="line" as="div">
+          <TextAnimate animation="fadeIn" by="line" as="div" className=' font-anton'>
       {`HACK TO\n\nTHE HIVE`}
            </TextAnimate>
           </h1>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <a
-              href="#register"
-              className="font-mono group relative inline-flex items-center px-8 py-3 bg-transparent border border-white text-white text-lg font-bold rounded-lg overflow-hidden transition-all duration-300"
-            >
-              <span className="relative z-10">REGISTER NOW</span>
-              <div className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-            </a>
+            <InteractiveHoverButton>REGISTER</InteractiveHoverButton>;
           </div>
         </div>
       </div>
