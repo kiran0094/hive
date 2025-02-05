@@ -23,6 +23,9 @@ interface HyperTextProps extends MotionProps {
   animateOnHover?: boolean;
   /** Custom character set for scramble effect. Defaults to uppercase alphabet */
   characterSet?: CharacterSet;
+
+  forceInlineElement?: boolean;
+
 }
 
 const DEFAULT_CHARACTER_SET = Object.freeze(
@@ -40,9 +43,10 @@ export function HyperText({
   startOnView = false,
   animateOnHover = true,
   characterSet = DEFAULT_CHARACTER_SET,
+  forceInlineElement = false,
   ...props
 }: HyperTextProps) {
-  const MotionComponent = motion.create(Component, {
+  const MotionComponent = motion.create(forceInlineElement ? "span" : Component, {
     forwardMotionProps: true,
   });
 

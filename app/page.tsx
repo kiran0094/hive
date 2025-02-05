@@ -5,6 +5,7 @@ import Prizes from '@/components/selfcomponents/Prizes/Prizes';
 import Speakers from '@/components/selfcomponents/Speakers/Speakers';
 import Tracks from '@/components/selfcomponents/Tracks/Tracks';
 import FAQ from '@/components/selfcomponents/FAQ/FAQ';
+import Aboutus from '@/components/selfcomponents/Aboutus';
 
 import { PastEvents } from '@/components/selfcomponents/pastevents/pastevent';
 
@@ -16,6 +17,7 @@ export default function Home() {
     <main className=' bg-black'>
     
       <Hero />
+      <Aboutus />
       <About />
       <PastEvents/>
       <Speakers />

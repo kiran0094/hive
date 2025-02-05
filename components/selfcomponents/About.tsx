@@ -1,5 +1,4 @@
 import React from 'react';
-import { Code2, Blocks, Zap } from 'lucide-react';
 import { HyperText } from "@/components/ui/hyper-text";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 
@@ -24,14 +23,15 @@ export const projects = [
 
 const About = () => {
   return (
-    <div id="about" className="py-24 bg-black">
+    <div id="about" className="pt-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="font-mono text-4xl font-extrabold text-white sm:text-5xl">
-           <HyperText >About the Hackathon </HyperText>
+           <HyperText >why hack to the hive
+           </HyperText>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-white/80 font-sans">
-            Join us in pushing the boundaries of blockchain technology and Web3 innovation
+          This event offers a unique platform to collaborate, innovate, and solve real-world challenges in Gen AI, Web 2, Web 3, and open-source technologies
           </p>
         </div>
 
