@@ -57,7 +57,8 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		animation: {
-  			shine: 'shine var(--duration) infinite linear'
+  			shine: 'shine var(--duration) infinite linear',
+  			pulse: 'pulse var(--duration) ease-out infinite'
   		},
   		keyframes: {
   			shine: {
@@ -69,6 +70,14 @@ export default {
   				},
   				to: {
   					'background-position': '0% 0%'
+  				}
+  			},
+  			pulse: {
+  				'0%, 100%': {
+  					boxShadow: '0 0 0 0 var(--pulse-color)'
+  				},
+  				'50%': {
+  					boxShadow: '0 0 0 8px var(--pulse-color)'
   				}
   			}
   		}

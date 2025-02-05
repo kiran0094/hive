@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { HyperText } from "@/components/ui/hyper-text";
+import { PulsatingButton } from "@/components/ui/pulsating-button"
 
 const cardData = [
   {
@@ -98,5 +99,11 @@ export default function  speakers() {
         </CardContainer>
       ))}
     </div>
+
+      {/* join us button */}
+      <div className="flex justify-center">
+
+      <PulsatingButton>Join Us</PulsatingButton>
+      </div>
 </>
     )}
